@@ -1,6 +1,4 @@
 import time
-fileObj = open('logo.ans')
-arryword = fileObj.read().splitlines()
 # This is the logo for the os
 # 16 x 16 resulution
 def logo():
