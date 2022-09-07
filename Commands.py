@@ -2,6 +2,7 @@ from multiprocessing.connection import wait
 import os
 import time
 from configparser import ConfigParser
+from typing import Type
 settings = 'config.ini'
 config = ConfigParser()
 config.read(settings)
@@ -46,3 +47,18 @@ def update(): # update cheker and downloader
         print('up to date')
     else:
         print('Needs updating')
+
+def start(app):
+    match app:
+        case['type']:
+            from Apps import Type
+            Type.start()
+        case _:
+            print('\033[37;41mNo App with that name\033[0m')
+
+def crash(Error):
+    os.system('cls||clear')
+    part1 = '\x1b[37;44mA problem has been detected and Pos has shutdown to prevent fearther damage.\n \n \x1b[37;44;1m'
+    part2 = ' \n\n\x1b[37;44mTry restarting'
+    print(part1 + Error + part2)
+
